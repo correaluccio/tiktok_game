@@ -9,49 +9,47 @@ class ConsoleUI:
         self.text = ScrolledText(root)
         self.text.pack(expand=True, fill='both')
         
-        # Redirigir la salida estándar a la interfaz
+        # Redirect standard output (console) to interface
         sys.stdout = self
         
     def write(self, msg):
-        # Agregar el mensaje a la interfaz
         self.text.insert(tk.END, msg)
-        self.text.see(tk.END)  # Desplazarse automáticamente hacia abajo
+        self.text.see(tk.END)
         
     def flush(self):
-        # Método necesario para redirigir la salida estándar
         pass
     
 board  = tik.Board()
 
 
-def obtener_valor(board):
+def get_value(board):
     valor = entry.get()
     board.addRow(valor)
     entry.delete(0, tk.END)
 
 
-# Crear la ventana principal
+# Create the main windows
 root = tk.Tk()
 root.geometry("570x600")
 root.title("Tik-Tok game")
-root.bind('<Return>', lambda event: obtener_valor(board))
+root.bind('<Return>', lambda event: get_value(board))
 
 
 
 
-# Crear la interfaz de la consola
+# Create the consle interface
 console = ConsoleUI(root)
 
 encabezado = "|    Your guess      |   correct numbers   |   correct positions   | "
 console.write(encabezado + "\n")
 
-# Crear la entrada de texto
+# Create the text entry
 entry = tk.Entry(root)
 entry.pack()
 
-# Crear el botón para obtener el valor
-button = tk.Button(root, text="Obtener valor", command=lambda: obtener_valor(board))
+# Generate a button for introduce a value
+button = tk.Button(root, text="Get Value", command=lambda: get_value(board))
 button.pack()
 
-# Mostrar la ventana
+
 root.mainloop()

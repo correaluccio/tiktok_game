@@ -1,4 +1,4 @@
-from gameNumbers import generateNumber, countOcurrences, countMatches 
+from gameNumbers import generateNumber, countOcurrences, countMatches, feasible_number
     
     
 
@@ -13,7 +13,7 @@ class Board:
         self.LastRow = []
     
     def addRow(self,playerNumber):
-        if len(playerNumber) == 4:
+        if len(playerNumber) == 4 and feasible_number(playerNumber):
             self.playerNumber = playerNumber
             row = [str(self.playerNumber),str(countOcurrences(self.playerNumber, self.gameNumber)),str(countMatches(self.playerNumber, self.gameNumber))]
             self.rows.append(row)

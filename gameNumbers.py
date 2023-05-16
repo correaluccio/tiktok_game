@@ -1,6 +1,7 @@
 import random
 
 def countOcurrences(playerNumber,gameNumber):
+    """count how many ocurrences are between player number and game number"""
     gameNumber = str(gameNumber)
     playerNumber = str(playerNumber)
     playerNumber_list = []
@@ -12,6 +13,7 @@ def countOcurrences(playerNumber,gameNumber):
     return aux
 
 def countMatches(playerNumber,gameNumber):
+    """count how many matchs are between player number and game number"""
     gameNumber = str(gameNumber)
     playerNumber = str(playerNumber)
     if len(playerNumber) == 4:
@@ -23,6 +25,7 @@ def countMatches(playerNumber,gameNumber):
     else:
         return 0
 def generateNumber():
+    """Generate feasibles numbers"""
     numbers = [1,2,3,4,5,6,7,8,9]
     digits = ""
     for i in range(4):
@@ -31,3 +34,11 @@ def generateNumber():
         numbers.remove(numberchoice)
     return digits
     
+def feasible_number(num):
+    """A number is feasible if the digits are not repeated"""
+    num = str(num)
+    for i in range(3):
+        if num[i] in num[i+1:3]:
+            return False
+    return True
+            
