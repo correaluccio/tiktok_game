@@ -29,3 +29,5 @@ return the number generater. This number is the number we will have to guess.
 
 ### fesaible_Number 
 Take a number as parametrer, if the number is feasible return True, if the number isn't feasible return False.
+
+![image_game] (https://i.ibb.co/p0jJCxV/game.png)
